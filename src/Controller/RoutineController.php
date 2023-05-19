@@ -15,14 +15,20 @@ class RoutineController extends AbstractController
      */
     public function index(Request $request): JsonResponse
     {
-        $post_data = json_decode($request->getContent(), true);
         $srv = new IAService();
-        //$srv->connect();
-        print_r($srv->connect());
+        $question = $request->get('question');
 
         return $this->json([
-            'message' => $post_data,
-            'path' => 'src/Controller/RoutineController.php',
+            'response' => $srv->connect($question),
         ]);
     }
 }
+/*
+    "RoutineForm": {
+        "days": "1;3;5",
+        "office_start": "0800",
+        "office_end": "1800",
+        "use_public_transport": false,
+        "workout": "txt"
+    }
+     */
