@@ -17,9 +17,8 @@ class RoutineController extends AbstractController
     {
         $post_data = json_decode($request->getContent(), true);
         $srv = new IAService();
-        $srv->connect();
-        $form = $post_data['RoutineForm'];
-        print_r($form);
+        //$srv->connect();
+        print_r($srv->connect());
 
         return $this->json([
             'message' => $post_data,

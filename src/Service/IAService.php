@@ -4,14 +4,16 @@ namespace App\Service;
 
 use Orhanerday\OpenAi\OpenAi as OpenAi;
 
-class IAService extends OpenAi
+class IAService
 {
     public $openAi;
 
     public function __construct()
     {
         $this->openAi = new OpenAi($_ENV['IA_KEY']);
+        $this->openAi->setHeader(["Connection" => "keep-alive"]);
     }
+
     public function connect()
     {
 
@@ -50,5 +52,14 @@ class IAService extends OpenAi
         $d = json_decode($chat);
         // Get Content
         echo ($d->choices[0]->message->content);
+    }
+
+    public function listModels()
+    {
+        return $this->openAi->listModels();
+    }
+    public function retrieveModel($model)
+    {
+        return $this->openAi->retrieveModel($model);
     }
 }
