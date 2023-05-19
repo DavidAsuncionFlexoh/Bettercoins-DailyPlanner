@@ -20,12 +20,8 @@ class IAService
             'model' => 'gpt-3.5-turbo',
             'messages' => [
                 [
-                    "role" => "system",
-                    "content" => "You are a helpful assistant that translates English to French."
-                ],
-                [
                     "role" => "user",
-                    "content" => "Translate the following English text to French: Good morning how are you?"
+                    "content" => "$question"
                 ]
             ],
             'temperature' => 1.0,
