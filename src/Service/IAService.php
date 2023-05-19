@@ -10,7 +10,7 @@ class IAService extends OpenAi
 
     public function __construct()
     {
-        $this->openAi = new OpenAi('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');
+        $this->openAi = new OpenAi($_ENV['IA_KEY']);
     }
     public function connect()
     {
