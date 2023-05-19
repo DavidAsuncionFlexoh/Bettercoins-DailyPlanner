@@ -7,10 +7,10 @@ use Orhanerday\OpenAi\OpenAi as OpenAi;
 class IAService
 {
     public $openAi;
-    
+
     public function __construct()
     {
-        $this->openAi = new OpenAi('asd');
+        $this->openAi = new OpenAi('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');
     }
     public function connect()
     {
