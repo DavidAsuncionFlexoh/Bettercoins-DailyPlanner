@@ -28,9 +28,9 @@ class IAService
                     3. Ir al gimnasio (35 btc).
                     4. Beber 2 litros de agua (10 btc).
                     5. Meditar 30 minutos (25 btc).
-                    6.Utilizar tarjeta (10 btc).
-                    7.Llamar a un familiar (5 btc).
-                    8.Comer saludable durante todo el dia (20 btc).
+                    6. Utilizar tarjeta (10 btc).
+                    7. Llamar a un familiar (5 btc).
+                    8. Comer saludable durante todo el dia (20 btc).
                     9. 1 hora de formación / un curso (30 btc).
                     "
                 ],
