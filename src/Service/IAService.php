@@ -4,7 +4,7 @@ namespace App\Service;
 
 use Orhanerday\OpenAi\OpenAi as OpenAi;
 
-class IAService
+class IAService extends OpenAi
 {
     public $openAi;
 
