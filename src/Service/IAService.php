@@ -17,7 +17,7 @@ class IAService
 
     public function connect($actividades_eliminadas, $actividad_en_uso)
     {
-        $question = "Dada la lista de actividades disponibles, elige 1";
+        $question = "Dada la lista de actividades disponibles, elige 1 y responde solo su numero en la lista";
 
         $lista_actividades = array(
             "1" => "1. Caminar 5000 pasos (35 btc).",
@@ -41,7 +41,6 @@ class IAService
         foreach ($lista_actividades as $actividad) {
             $listado_actividades .= $actividad . "\n";
         }
-        print_r($listado_actividades);
 
         $chat = $this->openAi->chat([
             'model' => 'gpt-3.5-turbo',
@@ -58,7 +57,7 @@ class IAService
                 ],
                 [
                     "role" => "system",
-                    "content" => "Y devuelve unicamente sus numero de la lista"
+                    "content" => "Y devuelve unicamente su numero en la lista"
                 ],
             ],
             'temperature' => 1.0,
@@ -66,6 +65,11 @@ class IAService
         // decode response
         $d = json_decode($chat);
         // Get Content
+        $response = $d->choices[0]->message->content;
+        $response = preg_replace('/[^0-9]/', '', $response);
+        if ($response > 10) {
+            $response  = substr($response, -1);
+        }
         return $d->choices[0]->message->content;
     }
 
