@@ -15,11 +15,13 @@ class RoutineController extends AbstractController
      */
     public function index(Request $request): JsonResponse
     {
+
         $srv = new IAService();
-        $question = $request->get('question');
+        $actividades_eliminadas = $request->get('actividades_eliminadas');
+        $actividad_en_uso = $request->get('actividad_en_uso');
 
         return $this->json([
-            'response' => $srv->connect($question),
+            'response' => $srv->connect($actividades_eliminadas, $actividad_en_uso),
         ]);
     }
 }
