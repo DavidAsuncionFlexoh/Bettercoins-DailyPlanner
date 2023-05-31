@@ -19,9 +19,10 @@ class RoutineController extends AbstractController
         $srv = new IAService();
         $actividades_eliminadas = $request->get('actividades_eliminadas');
         $actividad_en_uso = $request->get('actividad_en_uso');
+        $actividades_oficina = $request->get('actividades_oficina');
 
         return $this->json([
-            'response' => $srv->connect($actividades_eliminadas, $actividad_en_uso),
+            'response' => $srv->connect($actividades_eliminadas, $actividad_en_uso, $actividades_oficina),
         ]);
     }
 }
