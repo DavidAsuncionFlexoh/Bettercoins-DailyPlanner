@@ -20,9 +20,10 @@ class RoutineController extends AbstractController
         $actividades_eliminadas = $request->get('actividades_eliminadas');
         $actividad_en_uso = $request->get('actividad_en_uso');
         $actividades_oficina = $request->get('actividades_oficina');
+        $numero_actividades = $request->get('numero_actividades');
 
         return $this->json([
-            'response' => $srv->connect($actividades_eliminadas, $actividad_en_uso, $actividades_oficina),
+            'response' => $srv->connect($actividades_eliminadas, $actividad_en_uso, $actividades_oficina, $numero_actividades),
         ]);
     }
 }

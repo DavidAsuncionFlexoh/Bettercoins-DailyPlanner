@@ -35,9 +35,9 @@ class IAService
     }
 
 
-    public function connect($actividades_eliminadas, $actividad_en_uso, $actividades_oficina = true)
+    public function connect($actividades_eliminadas, $actividad_en_uso, $actividades_oficina = true, $numero_actividades)
     {
-        $question = "Dada la lista de numeros, elige 3 numeros unicos, que no se repitan, separados por comas y no incluyas ninguna explicación, solo proporciona una respuesta";
+        $question = "Dada la lista de numeros, elige $numero_actividades numeros unicos, que no se repitan, separados por comas y no incluyas ninguna explicación, solo proporciona una respuesta";
         $lista_actividades = ($actividades_oficina) ? self::lista_actividades_oficina : self::lista_actividades;
 
         $lista_actividades = $lista_actividades + self::lista_actividades_genericas;
